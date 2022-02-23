@@ -68,8 +68,8 @@ task RunBatVI {
 
             # Write configuration and filelist files
             ./BatVI/write_configuration_file.py \
-                --fastq1 ~{$fastq1},
-                --fastq2 ~{$fastq2},
+                --fastq1 $fastq1,
+                --fastq2 $fastq2,
                 --Human_BLAST_index ~{Human_BLAST_index},
                 --Human_BatIndex ~{Human_BatIndex},
                 --Human_BWA_Index ~{Human_BWA_Index},
