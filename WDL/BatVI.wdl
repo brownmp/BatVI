@@ -17,13 +17,13 @@ task RunBatVI {
         File Human_BLAST_index
         File Human_BatIndex
         File Human_BWA_Index
-        File Human_fasta
+        String Human_fasta
 
         # Virus 
         File Virus_BLAST_index
         File Virus_BatIndex
         File Virus_BWA_Index
-        File Virus_fasta
+        String Virus_fasta
 
         Int  insertion_length
 
@@ -163,13 +163,13 @@ workflow BatVI {
         File Human_BLAST_index
         File Human_BatIndex
         File Human_BWA_Index
-        File Human_fasta
+        String Human_fasta
 
         # Virus 
         File Virus_BLAST_index
         File Virus_BatIndex
         File Virus_BWA_Index
-        File Virus_fasta
+        String Virus_fasta
 
         Int insertion_length 
 

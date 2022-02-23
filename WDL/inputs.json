@@ -10,5 +10,6 @@
         "BatVI.Virus_BWA_Index":"",
         "BatVI.insertion_length":"200",
         "BatVI.cpus":"10",
-        "BatVI.preemptible":"1"
+        "BatVI.preemptible":"1",
+        "BatVI.sample_id":""
 }
