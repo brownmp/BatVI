@@ -1,0 +1,23 @@
+#~~~~~~~~~~~~~~~~~
+# virus database 
+#~~~~~~~~~~~~~~~~~
+INDEX=/usr/local/src/Virus_BatIndex/HPVs_db.fasta
+PATHOGEN_BLAST_DB=/usr/local/src/HPV_BLAST_index/HPVs_db.fasta
+PATHOGEN_BWA=/usr/local/src/HPV_BWA_index/HPVs_db.fasta
+
+#~~~~~~~~~~~~~~~~~
+# HumanGenome database 
+#~~~~~~~~~~~~~~~~~
+HG_BLAST_DB=/usr/local/src/Human_BLAST_index/ref_genome_noCHR.fa
+HG_GENOME=/usr/local/src/Human_BatIndex/ref_genome_noCHR.fa
+HG_BWA=/usr/local/src/Human_BWA_Index/ref_genome_noCHR.fa
+
+
+#~~~~~~~~~~~~~~~~~
+# Toolss
+#~~~~~~~~~~~~~~~~~
+BLAST_PATH=/usr/local/src/ncbi-blast-2.12.0+/bin
+BWA_PATH=/usr/local/bin/
+PICARD_PATH=/usr/local/src/picard.jar
+SAMTOOLS_PATH=/usr/local/bin/
+BEDTOOLS_PATH=/usr/local/bin/

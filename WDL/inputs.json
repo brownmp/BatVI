@@ -1,0 +1,14 @@
+{
+        "BatVI.docker":"brownmp/batvi:devel",
+        "BatVI.left":"",
+        "BatVI.right":"",
+        "BatVI.Human_BLAST_index":"",
+        "BatVI.Human_BatIndex":"",
+        "BatVI.Human_BWA_Index":"",
+        "BatVI.Virus_BLAST_index":"",
+        "BatVI.Virus_BatIndex":"",
+        "BatVI.Virus_BWA_Index":"",
+        "BatVI.insertion_length":"200",
+        "BatVI.cpus":"10",
+        "BatVI.preemptible":"1"
+}
