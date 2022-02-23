@@ -124,7 +124,7 @@ task RunBatVI {
 
     runtime {
         preemptible: preemptible
-        disks: "local-disk " + ceil(size(Virus_Reference, "GB") + size(Human_Reference, "GB") + size(fastq1, "GB")*6 + 100) + " HDD"
+        disks: "local-disk " + ceil(size(Human_BLAST_index, "GB") + size(Human_BatIndex, "GB") + size(Human_BWA_Index, "GB") + size(fastq1, "GB")*6 + 100) + " HDD"
         docker: docker
         cpu: cpus
         memory: "100GB"
