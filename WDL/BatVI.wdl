@@ -85,7 +85,7 @@ task RunBatVI {
             #~~~~~~~~~~~~~~~~~~~~~~~
             /usr/local/src/batvi1.03/call_integrations.sh /usr/local/src/ \
                 --threads ~{cpus}  \
-                2>&1 | tee output/output_log_subset.txt
+                2>&1 | tee output_log_subset.txt
         
         else 
 
@@ -108,7 +108,7 @@ task RunBatVI {
             #~~~~~~~~~~~~~~~~~~~~~~~
             /usr/local/src/batvi1.03/call_integrations.sh /usr/local/src/ \
                 --threads ~{cpus}  \
-                2>&1 | tee output/output_log_subset.txt
+                2>&1 | tee output_log_subset.txt
         fi
 
         #~~~~~~~~~~~~~~~~~~~~~~~~
