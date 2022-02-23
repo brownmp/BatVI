@@ -67,7 +67,7 @@ task RunBatVI {
             fastq2="${fastqs[1]}"
 
             # Write configuration and filelist files
-            ./usr/local/src/BatVI/write_configuration_file.py \
+            /usr/local/src/BatVI/write_configuration_file.py \
                 --fastq1 $fastq1,
                 --fastq2 $fastq2,
                 --Human_BLAST_index ~{Human_BLAST_index},
@@ -90,7 +90,7 @@ task RunBatVI {
         else 
 
             # Write configuration and filelist files
-            ./usr/local/src/BatVI/write_configuration_file.py \
+            /usr/local/src/BatVI/write_configuration_file.py \
                 --fastq1 ~{fastq1},
                 --fastq2 ~{fastq2},
                 --Human_BLAST_index ~{Human_BLAST_index},
