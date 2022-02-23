@@ -129,6 +129,13 @@ RUN wget https://www.comp.nus.edu.sg/~bioinfo/batvi/batvi1.03.tar.gz && \
         cd batvi1.03 && \
         ./build.sh
 
+#~~~~~~~~~~~~~~~~~~~~~~~~~
+# Install the git repo
+#~~~~~~~~~~~~~~~~~~~~~~~~~
+
+RUN git clone https://github.com/brownmp/BatVI.git
+
+
 
 RUN apt-get -qq -y remove automake build-essential cmake curl git gcc g++ wget && \
     apt-get -qq -y autoremove && \
