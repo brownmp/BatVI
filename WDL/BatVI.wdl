@@ -114,12 +114,19 @@ task RunBatVI {
         #~~~~~~~~~~~~~~~~~~~~~~~~
         # Tar the output
         #~~~~~~~~~~~~~~~~~~~~~~~~
-        tar -czf OUTPUT.tar.gz OUTPUT
+        tar -czf tmp.batvi.tar.gz tmp.batvi
+        # tar -czf OUTPUT.tar.gz OUTPUT
 
     >>>
 
     output {
-        File output_file="OUTPUT.tar.gz"
+        #File output_file="OUTPUT.tar.gz"
+        File tmp_batvi="tmp.batvi.tar.gz"
+        File final_hits_txt="final_hits.txt"
+        File t_opt_subopt_cluster="t.opt.subopt.cluster"
+        File clusterlist_opt_subopt_txt="clusterlist.opt.subopt.txt"
+        File predictions_opt_subopt_txt="predictions.opt.subopt.txt"
+
     }
 
     runtime {
