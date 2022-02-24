@@ -108,8 +108,8 @@ def main():
     # HumanGenome database
     #~~~~~~~~~~~~~~~~~
     HG_BLAST_DB={Human_BLAST_Index}
-    HG_GENOME={Virus_BatIndex}
-    HG_BWA={Virus_BWA_Index}
+    HG_GENOME={Human_BatIndex}
+    HG_BWA={Human_BWA_Index}
 
 
     #~~~~~~~~~~~~~~~~~
