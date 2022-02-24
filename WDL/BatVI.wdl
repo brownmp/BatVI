@@ -103,10 +103,13 @@ task RunBatVI {
                 --Virus_fasta ~{Virus_fasta} \
                 --insertion_length ~{insertion_length}
         
+            
+            echo "~{fastq1};~{fastq2};~{insertion_length}" | tee filelist.txt
+
             #~~~~~~~~~~~~~~~~~~~~~~~
             # Run BatVI
             #~~~~~~~~~~~~~~~~~~~~~~~
-            /usr/local/src/batvi1.03/call_integrations.sh /usr/local/src/ \
+            /usr/local/src/batvi1.03/call_integrations.sh `pwd` \
                 --threads ~{cpus}  \
                 2>&1 | tee output_log_subset.txt
         fi
@@ -114,14 +117,14 @@ task RunBatVI {
         #~~~~~~~~~~~~~~~~~~~~~~~~
         # Tar the output
         #~~~~~~~~~~~~~~~~~~~~~~~~
-        tar -czf tmp.batvi.tar.gz tmp.batvi
+        #tar -czf tmp.batvi.tar.gz tmp.batvi
         # tar -czf OUTPUT.tar.gz OUTPUT
 
     >>>
 
     output {
         #File output_file="OUTPUT.tar.gz"
-        File tmp_batvi="tmp.batvi.tar.gz"
+        #File tmp_batvi="tmp.batvi.tar.gz"
         File final_hits_txt="final_hits.txt"
         File t_opt_subopt_cluster="t.opt.subopt.cluster"
         File clusterlist_opt_subopt_txt="clusterlist.opt.subopt.txt"
