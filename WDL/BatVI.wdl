@@ -93,11 +93,11 @@ task RunBatVI {
             /usr/local/src/BatVI/write_configuration_file.py \
                 --fastq1 ~{fastq1} \
                 --fastq2 ~{fastq2} \
-                --Human_BLAST_index ~{Human_BLAST_index} \
+                --Human_BLAST_Index ~{Human_BLAST_index} \
                 --Human_BatIndex ~{Human_BatIndex} \
                 --Human_BWA_Index ~{Human_BWA_Index} \
                 --Human_fasta ~{Human_fasta} \
-                --Virus_BLAST_index ~{Virus_BLAST_index} \
+                --Virus_BLAST_Index ~{Virus_BLAST_index} \
                 --Virus_BatIndex ~{Virus_BatIndex} \
                 --Virus_BWA_Index ~{Virus_BWA_Index} \
                 --Virus_fasta ~{Virus_fasta} \
