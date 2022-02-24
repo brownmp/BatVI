@@ -28,7 +28,7 @@ def main():
     parser.add_argument('--Human_BLAST_Index', required = True, help = "")
     parser.add_argument('--Human_BatIndex', required = True, help = "")
     parser.add_argument('--Human_BWA_Index', required = True, help="")
-    parser.add_argument('--Human_fasta', required = True,  default = "ref_genome_noCHR.fa",help="Human fasta file name")
+    parser.add_argument('--Human_fasta', required = True,  default = "ref_genome_noCHR.fa", help="Human fasta file name")
     #Viral References 
     parser.add_argument('--Virus_BLAST_Index', required = True, help="")
     parser.add_argument('--Virus_BatIndex', required = True, help="")
@@ -47,15 +47,15 @@ def main():
     fastq1 = args.fastq1
     fastq2 = args.fastq2
     # human references
-    Human_BLAST_Index = args.Human_BLAST_Index
-    Human_BatIndex = args.Human_BatIndex
-    Human_BWA_Index = args.Human_BWA_Index
-    Human_fasta = args.Human_BWA_Index
+    Human_BLAST_Index_input = args.Human_BLAST_Index
+    Human_BatIndex_input = args.Human_BatIndex
+    Human_BWA_Index_input = args.Human_BWA_Index
+    Human_fasta = args.Human_fasta
 
     # Virus References 
-    Virus_BLAST_Index = args.Virus_BLAST_Index
-    Virus_BatIndex = args.Virus_BatIndex
-    Virus_BWA_Index = args.Virus_BWA_Index
+    Virus_BLAST_Index_input = args.Virus_BLAST_Index
+    Virus_BatIndex_input = args.Virus_BatIndex
+    Virus_BWA_Index_input = args.Virus_BWA_Index
     Virus_fasta = args.Virus_fasta
 
     insertion_length = args.insertion_length
@@ -74,20 +74,20 @@ def main():
     #~~~~~~~~~~~~~~~~
     # Get base names 
     #~~~~~~~~~~~~~~~~
-    Human_BLAST_Index = configurePath(Human_BLAST_Index)
-    Human_BatIndex = configurePath(Human_BatIndex)
-    Human_BWA_Index = configurePath(Human_BWA_Index)
+    Human_BLAST_basename = configurePath(Human_BLAST_Index_input)
+    Human_BatIndex = configurePath(Human_BatIndex_input)
+    Human_BWA_Index = configurePath(Human_BWA_Index_input)
 
-    Virus_BLAST_Index = configurePath(Virus_BLAST_Index)
-    Virus_BatIndex = configurePath(Virus_BatIndex)
-    Virus_BWA_Index = configurePath(Virus_BWA_Index)
-
+    Virus_BLAST_Index = configurePath(Virus_BLAST_Index_input)
+    Virus_BatIndex = configurePath(Virus_BatIndex_input)
+    Virus_BWA_Index = configurePath(Virus_BWA_Index_input)
 
     #~~~~~~~~~~~~~~~~
     # comprise  the paths 
     #~~~~~~~~~~~~~~~~
     cwd = os.getcwd()
-    Human_BLAST_Index = os.path.join(cwd, Human_BLAST_Index, Human_fasta)
+
+    Human_BLAST_Index = os.path.join(cwd, Human_BLAST_basename, Human_fasta)
     Human_BatIndex = os.path.join(cwd, Human_BatIndex, Human_fasta)
     Human_BWA_Index = os.path.join(cwd, Human_BWA_Index, Human_fasta)
 
@@ -95,7 +95,6 @@ def main():
     Virus_BatIndex = os.path.join(cwd, Virus_BatIndex, Virus_fasta)
     Virus_BWA_Index = os.path.join(cwd, Virus_BWA_Index, Virus_fasta)
     
-
 
     a = f"""
     #~~~~~~~~~~~~~~~~~
