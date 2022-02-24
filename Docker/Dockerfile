@@ -132,7 +132,8 @@ RUN wget https://www.comp.nus.edu.sg/~bioinfo/batvi/batvi1.03.tar.gz && \
 #~~~~~~~~~~~~~~~~~~~~~~~~~
 # Install the git repo
 #~~~~~~~~~~~~~~~~~~~~~~~~~
-
+WORKDIR $SRC
+ARG CACHEBUST=1
 RUN git clone https://github.com/brownmp/BatVI.git
 
 
