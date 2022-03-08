@@ -31,6 +31,8 @@ task RunBatVI {
         Int preemptible
         String docker
         String sample_id
+        Int disk
+        String memory
     }
 
     command <<<
@@ -79,11 +81,13 @@ task RunBatVI {
                 --Virus_BWA_Index ~{Virus_BWA_Index} \
                 --Virus_fasta ~{Virus_fasta} \
                 --insertion_length ~{insertion_length}
+            
+            #echo "$fastq1;$fastq2;~{insertion_length}" | tee filelist.txt
         
             #~~~~~~~~~~~~~~~~~~~~~~~
             # Run BatVI
             #~~~~~~~~~~~~~~~~~~~~~~~
-            /usr/local/src/batvi1.03/call_integrations.sh /usr/local/src/ \
+            /usr/local/src/batvi1.03/call_integrations.sh `pwd` \
                 --threads ~{cpus}  \
                 2>&1 | tee output_log_subset.txt
         
@@ -102,9 +106,10 @@ task RunBatVI {
                 --Virus_BWA_Index ~{Virus_BWA_Index} \
                 --Virus_fasta ~{Virus_fasta} \
                 --insertion_length ~{insertion_length}
+
+            echo "~{fastq1};~{fastq2};~{insertion_length}" | tee filelist.txt
         
             
-            echo "~{fastq1};~{fastq2};~{insertion_length}" | tee filelist.txt
 
             #~~~~~~~~~~~~~~~~~~~~~~~
             # Run BatVI
@@ -118,26 +123,30 @@ task RunBatVI {
         # Tar the output
         #~~~~~~~~~~~~~~~~~~~~~~~~
         #tar -czf tmp.batvi.tar.gz tmp.batvi
-        # tar -czf OUTPUT.tar.gz OUTPUT
+        #tar -czf OUTPUT.tar.gz OUTPUT
+        #tar -czf OUTPUT.tar.gz *
 
     >>>
 
     output {
         #File output_file="OUTPUT.tar.gz"
         #File tmp_batvi="tmp.batvi.tar.gz"
+        File batviconfig_txt="batviconfig.txt"
+        File filelist_txt="filelist.txt"
         File final_hits_txt="final_hits.txt"
         File t_opt_subopt_cluster="t.opt.subopt.cluster"
         File clusterlist_opt_subopt_txt="clusterlist.opt.subopt.txt"
         File predictions_opt_subopt_txt="predictions.opt.subopt.txt"
+        #File OUTPUT="OUTPUT.tar.gz"
 
     }
 
     runtime {
         preemptible: preemptible
-        disks: "local-disk " + ceil(size(Human_BLAST_index, "GB") + size(Human_BatIndex, "GB") + size(Human_BWA_Index, "GB") + size(fastq1, "GB")*6 + 100) + " HDD"
+        disks: "local-disk " + ceil(size(Human_BLAST_index, "GB") + size(Human_BatIndex, "GB") + size(Human_BWA_Index, "GB") + size(fastq1, "GB")*6 + disk) + " HDD"
         docker: docker
         cpu: cpus
-        memory: "100GB"
+        memory: memory + "GB"
     }
 }
 
@@ -188,6 +197,8 @@ workflow BatVI {
         #~~~~~~~~~~~~
         Int preemptible = 2
         String docker = "brownmp/batvi:devel"
+        Int disk = 100
+        String memory = "100"
 
         
 
@@ -224,6 +235,8 @@ workflow BatVI {
             cpus            = cpus,
             preemptible     = preemptible,
             docker          = docker,
-            sample_id       = sample_id
+            sample_id       = sample_id,
+            disk            = disk,
+            memory          = memory
     }
 }
